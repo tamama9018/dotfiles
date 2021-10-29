@@ -56,4 +56,4 @@ alias l='ls'
 
 alias rm="rm -i"
 
-alias fuck="echo FUCK"
+alias fuck="echo FUCK2"
