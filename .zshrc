@@ -1,3 +1,9 @@
+export HTTP_PROXY="http://192.168.10.105:8080"
+export HTTPS_PROXY="http://192.168.10.105:8080"
+export http_proxy="http://192.168.10.105:8080"
+export https_proxy="http://192.168.10.105:8080"
+export no_proxy="alsok.sken,127.0.0.1,localhost"
+
 # -----------------------------
 # オプション
 # -----------------------------
@@ -49,3 +55,5 @@ alias la='ls -a'
 alias l='ls'
 
 alias rm="rm -i"
+
+alias fuck="echo FUCK"
