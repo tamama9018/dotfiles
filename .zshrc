@@ -1,9 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/Yutyo/.oh-my-zsh"
 
@@ -11,13 +7,14 @@ export ZSH="/Users/Yutyo/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="frontcube"
+ZSH_THEME="bira"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "bira" "frontcube")
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -76,10 +73,15 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -109,7 +111,7 @@ source $ZSH/oh-my-zsh.sh
 # エイリアス
 # -----------------------------
 alias ga='git add ./'
-alias gcm='git commit'
+alias gcm='git commit -m'
 alias gp='git push'
 alias gs='git switch'
 alias gpl='git pull'
@@ -117,7 +119,10 @@ alias gpl='git pull'
 alias zsh='nano ~/.zshrc; source ~/.zshrc'
 
 alias la='ls -a'
+alias ll='ls -lh'
 alias l='ls'
+
+alias h='history'
 
 alias rm="rm -i"
 
@@ -139,5 +144,38 @@ setopt hist_ignore_all_dups
 # 同時に起動しているzshの間でhistoryを共有する
 setopt share_history
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# cdの後にlsを実行
+chpwd() { ls }
+
+HISTSIZE=10000
+SAVEHIST=10000
+
+# function left-prompt {
+#   name_t='179m%}'      # user name text clolr
+#   name_b='000m%}'    # user name background color
+#   path_t='255m%}'     # path text clolr
+#   path_b='031m%}'   # path background color
+#   arrow='087m%}'   # arrow color
+#   text_color='%{\e[38;5;'    # set text color
+#   back_color='%{\e[30;48;5;' # set background color
+#   reset='%{\e[0m%}'   # reset
+#   sharp='\uE0B0'      # triangle
+  
+#   user="${back_color}${name_b}${text_color}${name_t}"
+#   dir="${back_color}${path_b}${text_color}${path_t}"
+#   echo "${back_color}${path_b}${text_color}${name_b}${sharp} ${dir}%~${reset}${text_color}${path_b}${sharp}${reset}\n${text_color}${arrow}→ ${reset}"
+# }
+
+# PROMPT=`left-prompt` 
+
+# # コマンドの実行ごとに改行
+# function precmd() {
+#     # Print a newline before the prompt, unless it's the
+#     # first prompt in the process.
+#     if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+#         NEW_LINE_BEFORE_PROMPT=1
+#     elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+#         echo ""
+#     fi
+# }
 
