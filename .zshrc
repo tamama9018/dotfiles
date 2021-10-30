@@ -121,11 +121,10 @@ alias zsh='nano ~/.zshrc; source ~/.zshrc'
 alias la='ls -a'
 alias ll='ls -lh'
 alias l='ls'
-
 alias h='history'
-
 alias rm="rm -i"
-
+alias so="source"
+alias ...="cd ../.."
 alias fuck="echo FUCK"
 
 # -----------------------------
@@ -146,6 +145,11 @@ setopt share_history
 
 # cdの後にlsを実行
 chpwd() { ls }
+
+# ビープ音停止
+setopt no_beep
+setopt nolistbeep
+
 
 HISTSIZE=10000
 SAVEHIST=10000
