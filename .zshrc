@@ -9,6 +9,7 @@ export ZSH="/Users/Yutyo/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="frontcube"
 ZSH_THEME="bira"
+ZSH_THEME='agnoster'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -126,7 +127,7 @@ alias rm="rm -i"
 alias so="source"
 alias ...="cd ../.."
 alias fuck="echo FUCK"
-
+alias dotfiles='cd ~/dotfiles'
 # -----------------------------
 # オプション
 # -----------------------------
@@ -183,3 +184,24 @@ SAVEHIST=10000
 #     fi
 # }
 
+
+
+
+# zplug "b-ryan/powerline-shell"
+
+# function powerline_precmd() {
+#     PS1="$(powerline-shell --shell zsh $?)"
+# }
+
+# function install_powerline_precmd() {
+#   for s in ${precmd_functions[@]}; do
+#     if [ "$s" = "powerline_precmd" ]; then
+#       return
+#     fi
+#   done
+#   precmd_functions+=(powerline_precmd)
+# }
+
+# if [ "$TERM" != "linux" ]; then
+#     install_powerline_precmd
+# fi
