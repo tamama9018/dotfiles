@@ -7,6 +7,7 @@ GITHUB_URL=https://github.com/tamama9018/dotfiles
 
 if [ ! -e $OHMYPATH ]; then
     echo "oh-my-zsh is not installed"
+    sudo apt install powerline fonts-powerline
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 else
     echo "oh-my-zsh is installed"
