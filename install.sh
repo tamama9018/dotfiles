@@ -1,14 +1,18 @@
 #!/bin/bash
 
 DOTPATH=~/dotfiles
+GITHUB_URL=https://github.com/tamama9018/dotfiles
+
+
+
 
 # git が使えるなら git
-if has "git"; then
+if type "git" > /dev/null 2>&1; then
     git clone --recursive "$GITHUB_URL" "$DOTPATH"
 
 # 使えない場合は curl か wget を使用する
-elif has "curl" || has "wget"; then
-    tarball="https://github.com/tamama9018/dotfiles/archive/master.tar.gz"
+elif type "curl" > /dev/null 2>&1 || type "wget" > /dev/null 2>&1; then
+    tarball="$GITHUB_URL/archive/master.tar.gz"
 
     # どっちかでダウンロードして，tar に流す
     if has "curl"; then
