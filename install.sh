@@ -20,13 +20,13 @@ if type "git" > /dev/null 2>&1; then
 
 # 使えない場合は curl か wget を使用する
 elif type "curl" > /dev/null 2>&1 || type "wget" > /dev/null 2>&1; then
-    tarball="$GITHUB_URL/archive/master.tar.gz"
+    tarball="https://github.com/tamama9018/dotfiles/archive/refs/heads/main.tar.gz"
 
     # どっちかでダウンロードして，tar に流す
-    if has "curl"; then
+    if type "curl" > /dev/null 2>&1; then
         curl -L "$tarball"
 
-    elif has "wget"; then
+    elif type "wget" > /dev?null 2>&1; then
         wget -O - "$tarball"
 
     fi | tar zxv
