@@ -1,2 +1,2 @@
 # install
-`curl -L raw.github.com/tamama9018/dotfiles/blob/main/install.sh`
+`curl -L https://raw.githubusercontent.com/tamama9018/dotfiles/main/install.sh | bash`
