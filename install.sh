@@ -4,6 +4,8 @@ DOTPATH=~/dotfiles
 OHMYPATH=~/.oh-my-zsh/oh-my-zsh.sh
 GITHUB_URL=https://github.com/tamama9018/dotfiles
 
+sudo apt-get install zsh-syntax-highlighting
+sudo brew install zsh-syntax-highlighting
 
 if [ ! -e $OHMYPATH ]; then
     echo "oh-my-zsh is not installed"
