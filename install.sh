@@ -6,6 +6,8 @@ GITHUB_URL=https://github.com/tamama9018/dotfiles
 
 sudo apt-get install zsh-syntax-highlighting
 sudo brew install zsh-syntax-highlighting
+# linuxでfnキーを有効に
+echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
 
 if [ ! -e $OHMYPATH ]; then
     echo "oh-my-zsh is not installed"
