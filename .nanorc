@@ -1,7 +1,7 @@
 set autoindent
-set tabsize 2
+set tabsize 4
 set smooth
 set mouse
 set nowrap
 
-include '/usr/share/nano/*.nanorc'	
+include "~/.nano/nanorc/*.nanorc"
