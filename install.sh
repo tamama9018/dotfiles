@@ -17,14 +17,8 @@ fi
 
 # exa
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+source $HOME/.cargo/env
 cargo install exa
-
-# Nerd Font
-git clone --branch=master --depth 1 https://github.com/ryanoasis/nerd-fonts.git
-cd nerd-fonts
-./install.sh $1  # "Source" to install Sauce Code Nerd Font
-cd ..
-rm -rf nerd-fonts
 
 # bat
 brew install bat

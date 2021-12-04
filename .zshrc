@@ -102,6 +102,7 @@ alias gpl='git pull'
 alias n='nano'
 alias nano='nano -l'
 alias zshrc='nano ~/.zshrc; source ~/.zshrc'
+alias nanorc='nano ~/.nanorc'
 
 alias la='ls -a'
 alias ll='ls -lh'
@@ -155,6 +156,8 @@ chpwd() { ls }
 setopt no_beep
 setopt nolistbeep
 
+# 
+export EDITOR='nano'
 
 HISTSIZE=10000
 SAVEHIST=10000
