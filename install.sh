@@ -33,9 +33,9 @@ GITHUB_URL=https://github.com/tamama9018/dotfiles
 
 # zsh-syntax-highlighting
 if [ "$OS" == 'Mac' ]; then
-    sudo apt-get install zsh-syntax-highlighting
-else
     sudo brew install zsh-syntax-highlighting
+else
+    sudo apt-get install zsh-syntax-highlighting
 fi
 
 # oh-my-zsh
