@@ -157,29 +157,10 @@ chpwd() { ls }
 setopt no_beep
 setopt nolistbeep
 
-# 
 export EDITOR='nano'
 
 HISTSIZE=10000
 SAVEHIST=10000
-
-# function left-prompt {
-#   name_t='179m%}'      # user name text clolr
-#   name_b='000m%}'    # user name background color
-#   path_t='255m%}'     # path text clolr
-#   path_b='031m%}'   # path background color
-#   arrow='087m%}'   # arrow color
-#   text_color='%{\e[38;5;'    # set text color
-#   back_color='%{\e[30;48;5;' # set background color
-#   reset='%{\e[0m%}'   # reset
-#   sharp='\uE0B0'      # triangle
-  
-#   user="${back_color}${name_b}${text_color}${name_t}"
-#   dir="${back_color}${path_b}${text_color}${path_t}"
-#   echo "${back_color}${path_b}${text_color}${name_b}${sharp} ${dir}%~${reset}${text_color}${path_b}${sharp}${reset}\n${text_color}${arrow}→ ${reset}"
-# }
-
-# PROMPT=`left-prompt` 
 
 # # コマンドの実行ごとに改行
 # function precmd() {
@@ -191,25 +172,3 @@ SAVEHIST=10000
 #         echo ""
 #     fi
 # }
-
-
-
-
-# zplug "b-ryan/powerline-shell"
-
-# function powerline_precmd() {
-#     PS1="$(powerline-shell --shell zsh $?)"
-# }
-
-# function install_powerline_precmd() {
-#   for s in ${precmd_functions[@]}; do
-#     if [ "$s" = "powerline_precmd" ]; then
-#       return
-#     fi
-#   done
-#   precmd_functions+=(powerline_precmd)
-# }
-
-# if [ "$TERM" != "linux" ]; then
-#     install_powerline_precmd
-# fi

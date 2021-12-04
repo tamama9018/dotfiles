@@ -1,15 +1,46 @@
 #!/bin/bash
 
+declare OS="unsupported os"
+declare linux="unknown"
+if [ "$(uname)" == 'Darwin' ]; then
+    OS='Mac'
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+    OS='Linux'
+    RELEASE_FILE=/etc/os-release
+    if grep '^NAME="CentOS' "${RELEASE_FILE}" >/dev/null; then
+        linux='CentOS'
+    elif grep '^NAME="Amazon' "${RELEASE_FILE}" >/dev/null; then
+        linux="Amazon Linux"
+    elif grep '^NAME="Ubuntu' "${RELEASE_FILE}" >/dev/null; then
+        linux=Ubuntu
+    else
+        echo "Your platform is not supported."
+        uname -a
+        exit 1
+    fi
+elif [ "$(expr substr $(uname -s) 1 6)" == 'CYGWIN' ]; then
+    OS='Linux'
+else
+    echo "Your platform is not supported."
+    uname -a
+    exit 1
+fi
+echo $OS
+
 DOTPATH=~/dotfiles
 OHMYPATH=~/.oh-my-zsh/oh-my-zsh.sh
 GITHUB_URL=https://github.com/tamama9018/dotfiles
 
-sudo apt-get install zsh-syntax-highlighting
-sudo brew install zsh-syntax-highlighting
+# zsh-syntax-highlighting
+if [ "$OS" == 'Mac' ]; then
+    sudo apt-get install zsh-syntax-highlighting
+else
+    sudo brew install zsh-syntax-highlighting
+fi
 
+# oh-my-zsh
 if [ ! -e $OHMYPATH ]; then
     echo "oh-my-zsh is not installed"
-    sudo apt install powerline fonts-powerline
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 else
     echo "oh-my-zsh is installed"
@@ -21,8 +52,14 @@ source $HOME/.cargo/env
 cargo install exa
 
 # bat
-brew install bat
+if [ "$OS" == 'Mac' ]; then
+    brew install bat
+else
+    curl -LJO https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
+    sudo dpkg -i bat_0.9.0_amd64.deb
+fi
 
+# 導入
 # git が使えるなら git
 if type "git" > /dev/null 2>&1; then
     git clone --recursive "$GITHUB_URL" "$DOTPATH"
