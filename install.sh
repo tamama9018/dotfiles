@@ -13,6 +13,9 @@ else
     echo "oh-my-zsh is installed"
 fi
 
+# exa
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+cargo install exa
 
 # git が使えるなら git
 if type "git" > /dev/null 2>&1; then
