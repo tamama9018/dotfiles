@@ -101,7 +101,7 @@ alias gpl='git pull'
 
 alias n='nano'
 alias nano='nano -l'
-alias zshs='nano ~/.zshrc; source ~/.zshrc'
+alias zshrc='nano ~/.zshrc; source ~/.zshrc'
 
 alias la='ls -a'
 alias ll='ls -lh'

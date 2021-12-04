@@ -4,6 +4,8 @@ DOTPATH=~/dotfiles
 OHMYPATH=~/.oh-my-zsh/oh-my-zsh.sh
 GITHUB_URL=https://github.com/tamama9018/dotfiles
 
+sudo apt-get install zsh-syntax-highlighting
+sudo brew install zsh-syntax-highlighting
 
 if [ ! -e $OHMYPATH ]; then
     echo "oh-my-zsh is not installed"
@@ -17,19 +19,26 @@ fi
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 cargo install exa
 
+# Nerd Font
+git clone --branch=master --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+cd nerd-fonts
+./install.sh $1  # "Source" to install Sauce Code Nerd Font
+cd ..
+rm -rf nerd-fonts
+
 # git が使えるなら git
 if type "git" > /dev/null 2>&1; then
     git clone --recursive "$GITHUB_URL" "$DOTPATH"
 
 # 使えない場合は curl か wget を使用する
 elif type "curl" > /dev/null 2>&1 || type "wget" > /dev/null 2>&1; then
-    tarball="$GITHUB_URL/archive/master.tar.gz"
+    tarball="https://github.com/tamama9018/dotfiles/archive/refs/heads/main.tar.gz"
 
     # どっちかでダウンロードして，tar に流す
-    if has "curl"; then
+    if type "curl" > /dev/null 2>&1; then
         curl -L "$tarball"
 
-    elif has "wget"; then
+    elif type "wget" > /dev?null 2>&1; then
         wget -O - "$tarball"
 
     fi | tar zxv
