@@ -26,6 +26,9 @@ cd nerd-fonts
 cd ..
 rm -rf nerd-fonts
 
+# bat
+brew install bat
+
 # git が使えるなら git
 if type "git" > /dev/null 2>&1; then
     git clone --recursive "$GITHUB_URL" "$DOTPATH"
