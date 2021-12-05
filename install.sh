@@ -59,6 +59,13 @@ else
     sudo dpkg -i bat_0.9.0_amd64.deb
 fi
 
+# fd
+if [ "$OS" == 'Mac' ]; then
+    brew install fd
+else
+    cargo install fd-find
+fi
+
 # 導入
 # git が使えるなら git
 if type "git" > /dev/null 2>&1; then
