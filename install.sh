@@ -1,23 +1,79 @@
 #!/bin/bash
 
+declare OS="unsupported os"
+declare linux="unknown"
+if [ "$(uname)" == 'Darwin' ]; then
+    OS='Mac'
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+    OS='Linux'
+    RELEASE_FILE=/etc/os-release
+    if grep '^NAME="CentOS' "${RELEASE_FILE}" >/dev/null; then
+        linux='CentOS'
+    elif grep '^NAME="Amazon' "${RELEASE_FILE}" >/dev/null; then
+        linux="Amazon Linux"
+    elif grep '^NAME="Ubuntu' "${RELEASE_FILE}" >/dev/null; then
+        linux=Ubuntu
+    else
+        echo "Your platform is not supported."
+        uname -a
+        exit 1
+    fi
+elif [ "$(expr substr $(uname -s) 1 6)" == 'CYGWIN' ]; then
+    OS='Linux'
+else
+    echo "Your platform is not supported."
+    uname -a
+    exit 1
+fi
+echo $OS
+
 DOTPATH=~/dotfiles
 OHMYPATH=~/.oh-my-zsh/oh-my-zsh.sh
 GITHUB_URL=https://github.com/tamama9018/dotfiles
 
+<<<<<<< HEAD
 sudo apt-get install zsh-syntax-highlighting
 sudo brew install zsh-syntax-highlighting
 # linuxでfnキーを有効に
 echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
+=======
+# zsh-syntax-highlighting
+if [ "$OS" == 'Mac' ]; then
+    sudo brew install zsh-syntax-highlighting
+else
+    sudo apt-get install zsh-syntax-highlighting
+fi
+>>>>>>> c6e26fa9509fe19f5a462265a5f3c43cba1f8523
 
+# oh-my-zsh
 if [ ! -e $OHMYPATH ]; then
     echo "oh-my-zsh is not installed"
-    sudo apt install powerline fonts-powerline
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 else
     echo "oh-my-zsh is installed"
 fi
 
+# exa
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+source $HOME/.cargo/env
+cargo install exa
 
+# bat
+if [ "$OS" == 'Mac' ]; then
+    brew install bat
+else
+    curl -LJO https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
+    sudo dpkg -i bat_0.9.0_amd64.deb
+fi
+
+# fd
+if [ "$OS" == 'Mac' ]; then
+    brew install fd
+else
+    cargo install fd-find
+fi
+
+# 導入
 # git が使えるなら git
 if type "git" > /dev/null 2>&1; then
     git clone --recursive "$GITHUB_URL" "$DOTPATH"
