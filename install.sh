@@ -31,19 +31,17 @@ DOTPATH=~/dotfiles
 OHMYPATH=~/.oh-my-zsh/oh-my-zsh.sh
 GITHUB_URL=https://github.com/tamama9018/dotfiles
 
-<<<<<<< HEAD
-sudo apt-get install zsh-syntax-highlighting
-sudo brew install zsh-syntax-highlighting
 # linuxでfnキーを有効に
 echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
-=======
+
 # zsh-syntax-highlighting
 if [ "$OS" == 'Mac' ]; then
     sudo brew install zsh-syntax-highlighting
 else
     sudo apt-get install zsh-syntax-highlighting
+    # linuxでfnキーを有効に
+    echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
 fi
->>>>>>> c6e26fa9509fe19f5a462265a5f3c43cba1f8523
 
 # oh-my-zsh
 if [ ! -e $OHMYPATH ]; then
