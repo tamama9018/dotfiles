@@ -134,6 +134,10 @@ if [[ $(command -v bat) ]]; then
     alias cat='bat'
 fi
 
+if [[ $(command -v fd) ]]; then
+	alias find='fd'
+fi
+
 # -----------------------------
 # オプション
 # -----------------------------
