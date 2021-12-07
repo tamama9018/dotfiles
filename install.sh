@@ -71,10 +71,11 @@ else
     cargo install fd-find
 fi
 
+# guake
 if [ "$OS" == 'Mac' ]; then
 	echo 'mac cant install guake'
 else
-	apt-get install guake
+	sudo apt-get install guake
 fi
 
 # 導入
