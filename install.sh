@@ -71,6 +71,12 @@ else
     cargo install fd-find
 fi
 
+if [ "$OS" == 'Mac' ]; then
+	echo 'mac cant install guake'
+else
+	apt-get install guake
+fi
+
 # 導入
 # git が使えるなら git
 if type "git" > /dev/null 2>&1; then
