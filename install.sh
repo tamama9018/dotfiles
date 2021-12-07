@@ -75,7 +75,7 @@ fi
 if [ "$OS" == 'Mac' ]; then
 	echo 'mac cant install guake'
 else
-	sudo apt-get install guake
+	sudo apt install guake
 fi
 
 # 導入
