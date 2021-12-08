@@ -96,8 +96,12 @@ chpwd() { ls }
 setopt no_beep
 setopt nolistbeep
 
+# エディタ
 export EDITOR='nano'
 
+# ヒストリ
+setopt auto_pushd
+setopt pushd_ignore_dups
 HISTSIZE=10000
 SAVEHIST=10000
 
