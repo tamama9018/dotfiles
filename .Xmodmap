@@ -8,6 +8,7 @@ keycode 37 = Super_L
 keycode 105 = Super_R
 keycode 133 = Alt_L
 keycode 134 = Alt_R 
+keycode 47 = colon semicolon colon semicolon
 
 add control = Control_L
 add control = Control_R
