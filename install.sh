@@ -41,8 +41,6 @@ if [ "$OS" == 'Mac' ]; then
     sudo brew install zsh-syntax-highlighting
 else
     sudo apt-get install zsh-syntax-highlighting
-    # linuxでfnキーを有効に
-    echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
 fi
 
 # oh-my-zsh
@@ -52,8 +50,6 @@ if [ ! -e $OHMYPATH ]; then
 else
     echo "oh-my-zsh is installed"
 fi
-
-echo 'aaaa'
 
 # exa
 if type "exa" > /dev/null 2>&1; then
