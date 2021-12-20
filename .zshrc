@@ -35,6 +35,7 @@ alias gs='git switch'
 alias gpl='git pull'
 
 alias n='nano'
+alias v='vim'
 alias nano='nano -l'
 alias zshrc='nano ~/.zshrc; source ~/.zshrc'
 alias nanorc='nano ~/.nanorc'
@@ -44,11 +45,12 @@ alias ll='ls -lh'
 alias l='ls'
 alias c='cat'
 alias h='history'
-#alias rm="rm -i"
+alias rm="rm -i"
 alias so="source"
 alias ...="cd ../.."
 alias fuck="echo FUCK"
 alias dotfiles='cd ~/dotfiles'
+alias xmap='xmodmap ~/.Xmodmap'
 
 if [[ $(command -v exa) ]]; then
     alias e='exa --icons --git'

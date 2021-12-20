@@ -32,7 +32,9 @@ OHMYPATH=~/.oh-my-zsh/oh-my-zsh.sh
 GITHUB_URL=https://github.com/tamama9018/dotfiles
 
 # linuxでfnキーを有効に
-echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
+if [ "$OS" == 'Linux' ]; then
+    echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
+fi
 
 # zsh-syntax-highlighting
 if [ "$OS" == 'Mac' ]; then
@@ -51,26 +53,38 @@ else
     echo "oh-my-zsh is installed"
 fi
 
+echo 'aaaa'
+
 # exa
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-source $HOME/.cargo/env
-cargo install exa
+if type "exa" > /dev/null 2>&1; then
+    echo 'exa is installed'
+else 
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    source $HOME/.cargo/env
+    cargo install exa
+fi
 
 # bat
-if [ "$OS" == 'Mac' ]; then
-    brew install bat
+if type "bat" > /dev/null 2>&1; then
+    echo 'bat is installed'
 else
-    if [! [ $(command -v bat) ]]; then
+    if [ "$OS" == 'Mac' ]; then
+        brew install bat
+    else
         curl -LJO https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
         sudo dpkg -i bat_0.9.0_amd64.deb
     fi
 fi
 
 # fd
-if [ "$OS" == 'Mac' ]; then
-    brew install fd
+if type "fd" > /dev/null 2>&1; then
+    echo 'fd is installed'
 else
-    cargo install fd-find
+    if [ "$OS" == 'Mac' ]; then
+        brew install fd
+    else
+        cargo install fd-find
+    fi
 fi
 
 # guake
