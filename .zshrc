@@ -1,14 +1,9 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME='agnoster'
 
+<<<<<<< HEAD
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -59,10 +54,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
+=======
+>>>>>>> e83f43b80896276388823c69090e8bdf39da3ba1
 HIST_STAMPS="yyyy-mm-dd"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -83,12 +77,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 
 # -----------------------------
 # エイリアス
@@ -100,6 +88,7 @@ alias gs='git switch'
 alias gpl='git pull'
 
 alias n='nano'
+alias v='vim'
 alias nano='nano -l'
 alias zshrc='nano ~/.zshrc; source ~/.zshrc'
 alias nanorc='nano ~/.nanorc'
@@ -109,11 +98,16 @@ alias ll='ls -lh'
 alias l='ls'
 alias c='cat'
 alias h='history'
-#alias rm="rm -i"
+alias rm="rm -i"
 alias so="source"
 alias ...="cd ../.."
 alias fuck="echo FUCK"
+<<<<<<< HEAD
 alias mkdir='(){mkdir $1;cd $1}'
+=======
+alias dotfiles='cd ~/dotfiles'
+alias xmap='xmodmap ~/.Xmodmap'
+>>>>>>> e83f43b80896276388823c69090e8bdf39da3ba1
 
 alias dotfiles='cd ~/dotfiles'
 alias algo='cd /Users/Yutyo/Documents/Programs/atcoder/atcoder'
@@ -148,6 +142,10 @@ if [[ $(command -v bat) ]]; then
     alias cat='bat'
 fi
 
+if [[ $(command -v fd) ]]; then
+	alias find='fd'
+fi
+
 # -----------------------------
 # オプション
 # -----------------------------
@@ -171,8 +169,12 @@ chpwd() { ls }
 setopt no_beep
 setopt nolistbeep
 
+# エディタ
 export EDITOR='nano'
 
+# ヒストリ
+setopt auto_pushd
+setopt pushd_ignore_dups
 HISTSIZE=10000
 SAVEHIST=10000
 
@@ -186,3 +188,19 @@ SAVEHIST=10000
 #         echo ""
 #     fi
 # }
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/sekaken/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/sekaken/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/sekaken/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/sekaken/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
