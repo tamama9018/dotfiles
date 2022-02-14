@@ -51,7 +51,7 @@ ZSH_THEME='agnoster'
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -113,8 +113,22 @@ alias h='history'
 alias so="source"
 alias ...="cd ../.."
 alias fuck="echo FUCK"
-alias dotfiles='cd ~/dotfiles'
+alias mkdir='(){mkdir $1;cd $1}'
 
+alias dotfiles='cd ~/dotfiles'
+alias algo='cd /Users/Yutyo/Documents/Programs/atcoder/atcoder'
+
+alias acnn='acc new --template py'
+alias acn='(){acnn $1;cd $1;code .}'
+alias act="oj t -c 'pypy3 main.py' -d tests"
+alias act1="pypy3 main.py < tests/sample-1.in"
+alias act2="pypy3 main.py < tests/sample-2.in"
+alias act3="pypy3 main.py < tests/sample-3.in"
+alias act4="pypy3 main.py < tests/sample-4.in"
+alias act5="pypy3 main.py < tests/sample-5.in"
+alias act6="pypy3 main.py < tests/sample-6.in"
+alias acs="acc s main.py -- --guess-python-interpreter pypy"
+alias maketest="(){cat > tests/sample-$1.in}"
 if [[ $(command -v exa) ]]; then
     alias e='exa --icons --git'
     alias l=e
