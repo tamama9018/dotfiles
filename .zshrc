@@ -3,7 +3,8 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME='agnoster'
 
-<<<<<<< HEAD
+alias hoge='(){cat > $1.py}'
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -54,8 +55,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-=======
->>>>>>> e83f43b80896276388823c69090e8bdf39da3ba1
+
 HIST_STAMPS="yyyy-mm-dd"
 
 # Which plugins would you like to load?
@@ -102,27 +102,20 @@ alias rm="rm -i"
 alias so="source"
 alias ...="cd ../.."
 alias fuck="echo FUCK"
-<<<<<<< HEAD
 alias mkdir='(){mkdir $1;cd $1}'
-=======
 alias dotfiles='cd ~/dotfiles'
 alias xmap='xmodmap ~/.Xmodmap'
->>>>>>> e83f43b80896276388823c69090e8bdf39da3ba1
 
 alias dotfiles='cd ~/dotfiles'
 alias algo='cd /Users/Yutyo/Documents/Programs/atcoder/atcoder'
 
 alias acnn='acc new --template py'
 alias acn='(){acnn $1;cd $1;code .}'
-alias act="oj t -c 'pypy3 main.py' -d tests"
-alias act1="pypy3 main.py < tests/sample-1.in"
-alias act2="pypy3 main.py < tests/sample-2.in"
-alias act3="pypy3 main.py < tests/sample-3.in"
-alias act4="pypy3 main.py < tests/sample-4.in"
-alias act5="pypy3 main.py < tests/sample-5.in"
-alias act6="pypy3 main.py < tests/sample-6.in"
+alias acta="oj t -c 'pypy3 main.py' -d tests"
+alias act='(){pypy3 main.py < tests/sample-$1.in}'
 alias acs="acc s main.py -- --guess-python-interpreter pypy"
-alias maketest="(){cat > tests/sample-$1.in}"
+alias maketest='(){echo input;cat > tests/sample-$1.in;echo output;cat > tests/sample-$1.out}'
+alias trytest='echo input;cat | pypy3 main.py'
 if [[ $(command -v exa) ]]; then
     alias e='exa --icons --git'
     alias l=e
