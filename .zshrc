@@ -89,7 +89,6 @@ alias gpl='git pull'
 
 alias n='nano'
 alias v='vim'
-alias nano='nano -l'
 alias zshrc='nano ~/.zshrc; source ~/.zshrc'
 alias nanorc='nano ~/.nanorc'
 
@@ -105,6 +104,9 @@ alias fuck="echo FUCK"
 alias mkdir='(){mkdir $1;cd $1}'
 alias dotfiles='cd ~/dotfiles'
 alias xmap='xmodmap ~/.Xmodmap'
+
+alias dev1='ssh yuki-kimura@192.168.10.16'
+alias dev2='ssh yuki-kimura@192.168.10.15'
 
 alias dotfiles='cd ~/dotfiles'
 alias algo='cd /Users/Yutyo/Documents/Programs/atcoder/atcoder'
