@@ -105,8 +105,8 @@ alias mkdir='(){mkdir $1;cd $1}'
 alias dotfiles='cd ~/dotfiles'
 alias xmap='xmodmap ~/.Xmodmap'
 
-alias dev1='ssh yuki-kimura@192.168.10.16'
-alias dev2='ssh yuki-kimura@192.168.10.15'
+alias dev1='ssh yuki-kimura@192.168.10.16;zsh'
+alias dev2='ssh yuki-kimura@192.168.10.15;zsh'
 
 alias dotfiles='cd ~/dotfiles'
 alias algo='cd /Users/Yutyo/Documents/Programs/atcoder/atcoder'
