@@ -1,30 +1,8 @@
 #!/bin/bash
 
-declare OS="unsupported os"
-declare linux="unknown"
+declare OS="Linux"
 if [ "$(uname)" == 'Darwin' ]; then
     OS='Mac'
-elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-    OS='Linux'
-    RELEASE_FILE=/etc/os-release
-    if grep '^NAME="CentOS' "${RELEASE_FILE}" >/dev/null; then
-        linux='CentOS'
-    elif grep '^NAME="Amazon' "${RELEASE_FILE}" >/dev/null; then
-        linux="Amazon Linux"
-    elif grep '^NAME="Ubuntu' "${RELEASE_FILE}" >/dev/null; then
-        linux=Ubuntu
-    else
-        echo "Your platform is not supported."
-        uname -a
-        exit 1
-    fi
-elif [ "$(expr substr $(uname -s) 1 6)" == 'CYGWIN' ]; then
-    OS='Linux'
-else
-    echo "Your platform is not supported."
-    uname -a
-    exit 1
-fi
 echo $OS
 
 DOTPATH=~/dotfiles
