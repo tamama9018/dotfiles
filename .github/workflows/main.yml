@@ -12,6 +12,8 @@ jobs:
         run: apt-get update && apt-get install -y git sudo
       - name: Install dotfiles
         run: install.sh
+      - name: Test
+        run: ls
 
   centos:
     runs-on: ubuntu-latest
