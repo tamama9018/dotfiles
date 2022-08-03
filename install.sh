@@ -1,8 +1,9 @@
 #!/bin/bash
 
-declare OS="Linux"
+OS="Linux"
 if [ "$(uname)" == 'Darwin' ]; then
     OS='Mac'
+fi
 echo $OS
 
 DOTPATH=~/dotfiles
