@@ -10,10 +10,11 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install required packages
         run: apt-get update && apt-get install -y git sudo
-      - name: Install dotfiles
-        run: install.sh
       - name: Test
         run: ls
+      - name: Install dotfiles
+        run: install.sh
+
 
   centos:
     runs-on: ubuntu-latest
