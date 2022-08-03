@@ -6,9 +6,9 @@ jobs:
 
   mac:
     runs-on: macos-latest
-    container: macos:latest
     steps:
-      - uses: actions/checkout@v1
+      - name: where am i
+        run: ls
       - name: Install dotfiles
         run: sh install.sh
 
