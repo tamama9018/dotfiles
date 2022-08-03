@@ -62,13 +62,6 @@ else
     fi
 fi
 
-# guake
-if [ "$OS" == 'Mac' ]; then
-	echo 'mac cant install guake'
-else
-	sudo apt install guake
-fi
-
 # 導入
 # git が使えるなら git
 if type "git" > /dev/null 2>&1; then
