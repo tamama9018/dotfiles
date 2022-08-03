@@ -67,7 +67,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
@@ -86,6 +85,7 @@ alias gcm='git commit -m'
 alias gp='git push'
 alias gs='git switch'
 alias gpl='git pull'
+alias gb='git branch'
 
 alias n='nano'
 alias v='vim'

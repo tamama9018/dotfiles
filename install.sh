@@ -129,3 +129,4 @@ do
     echo "$f"
 done
 
+sh $DOTPATH/install_nerdfont.sh
