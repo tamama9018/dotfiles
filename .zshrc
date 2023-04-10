@@ -29,16 +29,10 @@ alias l='ls'
 alias rm="rm -i"
 alias so="source"
 alias ...="cd ../.."
-alias fuck="echo FUCK"
-alias mkdir='(){mkdir $1;cd $1}'
 alias dotfiles='cd ~/dotfiles'
 
-alias dev1='ssh yuki-kimura@192.168.10.16'
-alias dev2='ssh yuki-kimura@192.168.10.15'
-
-
-alias acnn='acc new --template py'
-alias acn='(){acnn $1;cp -r .vscode $1;cd $1;code .}'
+alias acnn='acc new'
+alias acn='(){acnn $1;cp -r .vscode $1;cp pysubmit.sh $1; cp pytest.sh $1;cd $1;code .}'
 alias acta="oj t -c 'pypy3 main.py' -d tests"
 alias act='(){pypy3 main.py < tests/sample-$1.in}'
 alias acs="acc s main.py -- --guess-python-interpreter pypy"
