@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Detect OS
 OS="Linux"
 if [ "$(uname)" == 'Darwin' ]; then
     OS='Mac'
@@ -10,19 +11,14 @@ DOTPATH=~/dotfiles
 OHMYPATH=~/.oh-my-zsh/oh-my-zsh.sh
 GITHUB_URL=https://github.com/tamama9018/dotfiles
 
-# linuxでfnキーを有効に
-if [ "$OS" == 'Linux' ]; then
-    echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
-fi
-
-# zsh-syntax-highlighting
+# Install zsh-syntax-highlighting
 if [ "$OS" == 'Mac' ]; then
     sudo brew install zsh-syntax-highlighting
 else
     sudo apt-get install zsh-syntax-highlighting
 fi
 
-# oh-my-zsh
+# Install oh-my-zsh
 if [ ! -e $OHMYPATH ]; then
     echo "oh-my-zsh is not installed"
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
@@ -30,7 +26,7 @@ else
     echo "oh-my-zsh is installed"
 fi
 
-# exa
+# Install exa
 if type "exa" > /dev/null 2>&1; then
     echo 'exa is installed'
 else 
@@ -39,7 +35,7 @@ else
     cargo install exa
 fi
 
-# bat
+# Install bat
 if type "bat" > /dev/null 2>&1; then
     echo 'bat is installed'
 else
@@ -51,7 +47,7 @@ else
     fi
 fi
 
-# fd
+# Install fd
 if type "fd" > /dev/null 2>&1; then
     echo 'fd is installed'
 else
@@ -62,16 +58,16 @@ else
     fi
 fi
 
-# 導入
-# git が使えるなら git
+# Get dotfile
+## git が使えるなら git
 if type "git" > /dev/null 2>&1; then
     git clone --recursive "$GITHUB_URL" "$DOTPATH"
 
-# 使えない場合は curl か wget を使用する
+## 使えない場合は curl か wget を使用する
 elif type "curl" > /dev/null 2>&1 || type "wget" > /dev/null 2>&1; then
     tarball="https://github.com/tamama9018/dotfiles/archive/refs/heads/main.tar.gz"
 
-    # どっちかでダウンロードして，tar に流す
+    ## どっちかでダウンロードして，tar に流す
     if type "curl" > /dev/null 2>&1; then
         curl -L "$tarball"
 
@@ -80,7 +76,7 @@ elif type "curl" > /dev/null 2>&1 || type "wget" > /dev/null 2>&1; then
 
     fi | tar zxv
 
-    # 解凍したら，DOTPATH に置く
+    ## 解凍したら，DOTPATH に置く
     mv -f dotfiles-master "$DOTPATH"
 
 else
@@ -92,6 +88,7 @@ if [ $? -ne 0 ]; then
     die "not found: $DOTPATH"
 fi
 
+# Make Synbolic Links
 for f in .??*
 do
     [[ "$f" == ".git" ]] && continue
@@ -101,4 +98,5 @@ do
     echo "$f"
 done
 
+# Install nerdfont
 sh $DOTPATH/install_nerdfont.sh
