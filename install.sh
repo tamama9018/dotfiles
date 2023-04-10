@@ -13,9 +13,9 @@ GITHUB_URL=https://github.com/tamama9018/dotfiles
 
 # Install zsh-syntax-highlighting
 if [ "$OS" == 'Mac' ]; then
-    sudo brew install zsh-syntax-highlighting
+    brew install zsh-syntax-highlighting
 else
-    sudo apt-get install zsh-syntax-highlighting
+    apt-get install zsh-syntax-highlighting
 fi
 
 # Install oh-my-zsh
@@ -43,7 +43,7 @@ else
         brew install bat
     else
         curl -LJO https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
-        sudo dpkg -i bat_0.9.0_amd64.deb
+        dpkg -i bat_0.9.0_amd64.deb
     fi
 fi
 
