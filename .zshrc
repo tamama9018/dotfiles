@@ -94,3 +94,9 @@ SAVEHIST=10000
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="yyyy-mm-dd"
+
+google() {
+    local url="https://google.co.jp/search?q=${*// /+}"
+    local browser="Google Chrome"
+    open $url -a $browser
+}
