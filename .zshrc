@@ -26,7 +26,7 @@ alias la='ls -a'
 alias ll='ls -lh'
 alias l='ls'
 
-alias rm="rm -i"
+alias rm='rm -rI'
 alias so="source"
 alias ...="cd ../.."
 alias dotfiles='cd ~/dotfiles'
