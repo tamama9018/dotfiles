@@ -11,6 +11,11 @@ DOTPATH=~/dotfiles
 OHMYPATH=~/.oh-my-zsh/oh-my-zsh.sh
 GITHUB_URL=https://github.com/tamama9018/dotfiles
 
+# Install warp terminal
+if [ "$OS" == 'Mac' ]; then
+    brew install --cask warp
+fi
+
 # Install zsh-syntax-highlighting
 if [ "$OS" == 'Mac' ]; then
     brew install zsh-syntax-highlighting
@@ -97,6 +102,3 @@ do
     ln -snfv "$DOTPATH/$f" "$HOME"/"$f"
     echo "$f"
 done
-
-# Install nerdfont
-sh $DOTPATH/install_nerdfont.sh
