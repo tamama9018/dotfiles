@@ -100,3 +100,9 @@ google() {
     local browser="Google Chrome"
     open $url -a $browser
 }
+
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+export PATH="/opt/pypy3.9-v7.3.11-macos_arm64/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
