@@ -26,3 +26,7 @@ nvm i v20.0.0
 # install atcoder-cli
 npm install -g atcoder-cli
 acc login # input username and password for atcoder
+
+# copy atcoder-cli setting files
+cp -r atcoder-cli/py $HOME/Library/Preferences/atcoder-cli-nodejs/
+cp atcoder-cli/config.json $HOME/Library/Preferences/atcoder-cli-nodejs/

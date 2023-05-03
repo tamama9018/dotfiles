@@ -3,5 +3,3 @@ set tabsize 4
 set linenumbers
 set mouse
 set nowrap
-
-include "~/.nano/nanorc/*.nanorc"
