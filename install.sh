@@ -7,20 +7,19 @@ if [ "$(uname)" == 'Darwin' ]; then
 fi
 echo $OS
 
-DOTPATH=~/dotfiles
+DOTPATH=~/.dotfiles
 OHMYPATH=~/.oh-my-zsh/oh-my-zsh.sh
 GITHUB_URL=https://github.com/tamama9018/dotfiles
 
-# Install warp terminal
-if [ "$OS" == 'Mac' ]; then
-    brew install --cask warp
-fi
-
-# Install zsh-syntax-highlighting
-if [ "$OS" == 'Mac' ]; then
-    brew install zsh-syntax-highlighting
+# Install zsh
+if type "zsh" > /dev/null 2>&1; then
+    echo 'zsh is installed'
 else
-    apt-get install zsh-syntax-highlighting
+    if [ "$OS" == 'Mac' ]; then
+        brew install zsh
+    else
+        sudo apt install zsh
+    fi
 fi
 
 # Install oh-my-zsh
@@ -88,7 +87,7 @@ else
     die "curl or wget required"
 fi
 
-cd ~/dotfiles
+cd $DOTPATH
 if [ $? -ne 0 ]; then
     die "not found: $DOTPATH"
 fi

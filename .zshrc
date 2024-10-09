@@ -1,10 +1,8 @@
-# oh-my-zsh
+# oh-my-zsh (https://github.com/ohmyzsh/ohmyzsh/wiki/themes)
 ZSH_THEME='agnoster'
 plugins=(git)
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 
 # alias
 alias ga='git add ./'
