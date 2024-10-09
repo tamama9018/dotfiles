@@ -18,7 +18,35 @@ else
     if [ "$OS" == 'Mac' ]; then
         brew install zsh
     else
-        sudo apt install zsh
+        # Install ncurses
+        mkdir ~/.local/ncurses
+        curl -L https://ftp.gnu.org/gnu/ncurses/ncurses-6.3.tar.gz > ncurses-6.3.tar.gz
+        tar -zxvf xxxx.tar.gz
+        rm ncurses-6.3.tar.gz
+        chmod 777 -R ncurses-6.3
+        cd ncurses-6.3
+        ./configure \
+        --prefix=$HOME/.local/ncurses \
+        --without-cxx-binding \
+        --with-shared \
+        --enable-widec
+        make; make install
+
+        # Install zsh
+        cd ~/.local
+        curl -L https://sourceforge.net/projects/zsh/files/zsh/5.7.1/zsh-5.7.1.tar.xz > zsh-5.7.1.tar.xz
+        xz -dc zsh-5.7.1.tar.xz | tar xfv -
+        mkdir ~/.local/zsh
+        cd zsh-5.7.1
+        ./configure \
+        --prefix=$HOME/.local/zsh \
+        --enable-cflags="-I $HOME/.local/ncurses/include" \
+        --enable-cppflags="-I $HOME/.local/ncurses/include" \
+        --enable-ldflags="-L $HOME/.local/ncurses/lib" \
+        --enable-multibyte \
+        --enable-locale \
+        --with-tcsetpgrp
+        make; make install
     fi
 fi
 
@@ -30,12 +58,18 @@ else
     echo "oh-my-zsh is installed"
 fi
 
+# Install cargo
+if type "cargo" > /dev/null 2>&1; then
+    echo 'cargo is installed'
+else 
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    source $HOME/.cargo/env
+fi
+
 # Install exa
 if type "exa" > /dev/null 2>&1; then
     echo 'exa is installed'
 else 
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-    source $HOME/.cargo/env
     cargo install exa
 fi
 
@@ -43,23 +77,14 @@ fi
 if type "bat" > /dev/null 2>&1; then
     echo 'bat is installed'
 else
-    if [ "$OS" == 'Mac' ]; then
-        brew install bat
-    else
-        curl -LJO https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
-        dpkg -i bat_0.9.0_amd64.deb
-    fi
+    cargo install bat
 fi
 
 # Install fd
 if type "fd" > /dev/null 2>&1; then
     echo 'fd is installed'
 else
-    if [ "$OS" == 'Mac' ]; then
-        brew install fd
-    else
-        cargo install fd-find
-    fi
+    cargo install fd-find
 fi
 
 # Get dotfile
