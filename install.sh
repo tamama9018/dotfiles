@@ -26,7 +26,7 @@ else
         chmod 777 -R ncurses-6.3
         cd ncurses-6.3
         ./configure \
-        --prefix=~/.local/ncurses \
+        --prefix=$HOME/.local/ncurses \
         --without-cxx-binding \
         --with-shared \
         --enable-widec
@@ -39,10 +39,10 @@ else
         mkdir ~/.local/zsh
         cd zsh-5.7.1
         ./configure \
-        --prefix=~/.local/zsh \
-        --enable-cflags="-I ~/.local/ncurses/include" \
-        --enable-cppflags="-I ~/.local/ncurses/include" \
-        --enable-ldflags="-L ~/.local/ncurses/lib" \
+        --prefix=$HOME/.local/zsh \
+        --enable-cflags="-I $HOME/.local/ncurses/include" \
+        --enable-cppflags="-I $HOME/.local/ncurses/include" \
+        --enable-ldflags="-L $HOME/.local/ncurses/lib" \
         --enable-multibyte \
         --enable-locale \
         --with-tcsetpgrp
@@ -63,7 +63,7 @@ if type "cargo" > /dev/null 2>&1; then
     echo 'cargo is installed'
 else 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-    source ~/.cargo/env
+    source $HOME/.cargo/env
 fi
 
 # Install exa
@@ -123,6 +123,6 @@ do
     [[ "$f" == ".git"* ]] && continue
     [[ "$f" == ".DS_Store" ]] && continue
 
-    ln -snfv "$DOTPATH/$f" "~"/"$f"
+    ln -snfv "$DOTPATH/$f" "$HOME"/"$f"
     echo "$f"
 done
