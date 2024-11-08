@@ -27,7 +27,7 @@ alias l='ls'
 alias rm='rm -rI'
 alias so="source"
 alias ...="cd ../.."
-alias dotfiles='cd ~/dotfiles'
+alias dotfiles='cd ~/.dotfiles'
 
 alias acnn='acc new'
 alias acn='(){acnn $1;cp -r .vscode $1;cp pysubmit.sh $1; cp pytest.sh $1;cd $1;code .}'
