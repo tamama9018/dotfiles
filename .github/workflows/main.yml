@@ -19,7 +19,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Install required packages
-        run: apt-get update && apt-get install -y git sudo
+        run: apt-get update && apt-get install -y git sudo curl
       - name: Install dotfiles
         run: bash install.sh
 
