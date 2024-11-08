@@ -9,22 +9,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: where am i
-        run: pwd
-      - name: Show files
-        run: ls -la
       - name: Install dotfiles
-        run: sh install.sh
+        run: bash install.sh
 
   ubuntu:
     runs-on: ubuntu-latest
     container: ubuntu:latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Install required packages
         run: apt-get update && apt-get install -y git sudo
       - name: Install dotfiles
-        run: sh install.sh
+        run: bash install.sh
 
 
   # centos:
