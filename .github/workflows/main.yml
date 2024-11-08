@@ -19,7 +19,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Install required packages
-        run: apt-get update && apt-get install -y git sudo curl xz-utils make
+        run: apt-get update && apt-get install -y git sudo curl xz-utils make build-essential
       - name: Install dotfiles
         run: bash install.sh
 
