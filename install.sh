@@ -19,7 +19,7 @@ else
         brew install zsh
     else
         # Install ncurses
-        mkdir ~/.local/ncurses
+        mkdir -p ~/.local/ncurses
         curl -L https://ftp.gnu.org/gnu/ncurses/ncurses-6.3.tar.gz > ncurses-6.3.tar.gz
         tar -zxvf xxxx.tar.gz
         rm ncurses-6.3.tar.gz
