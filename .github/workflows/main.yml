@@ -7,6 +7,8 @@ jobs:
   mac:
     runs-on: macos-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: where am i
         run: pwd
       - name: Show files
