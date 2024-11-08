@@ -8,7 +8,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: where am i
-        run: pwd
+        run: pwd && ls
       - name: Install dotfiles
         run: sh install.sh
 
