@@ -21,7 +21,7 @@ else
         # Install ncurses
         mkdir -p ~/.local/ncurses
         curl -L https://ftp.gnu.org/gnu/ncurses/ncurses-6.3.tar.gz > ncurses-6.3.tar.gz
-        tar -zxvf xxxx.tar.gz
+        tar -zxvf ncurses-6.3.tar.gz
         rm ncurses-6.3.tar.gz
         chmod 777 -R ncurses-6.3
         cd ncurses-6.3
